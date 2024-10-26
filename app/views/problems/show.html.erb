@@ -1,0 +1,15 @@
+<h1>問題詳細</h1>
+<p>この問題に回答する</p>
+<p>
+  タイトル:
+  <%= @problem.title %>
+</p>
+<p>
+  お題:<br>
+  <%= @problem.content %>
+</p>
+<p>
+  <% if @problem.image.present? %>
+    <%= image_tag @problem.image %>
+  <% end %>
+</p>
