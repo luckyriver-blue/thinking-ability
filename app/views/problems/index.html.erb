@@ -1,0 +1,8 @@
+<h1>問題一覧</h1>
+<ul>
+  <% @problems.each do |problem| %>
+  <li>
+    <%= link_to "#{problem.title}: #{problem.content}", problem_path(problem) %>
+  </li>
+  <% end %>
+</ul>
