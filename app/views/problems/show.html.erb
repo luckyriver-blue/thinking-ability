@@ -1,5 +1,5 @@
-<h1>問題詳細</h1>
-<p>この問題に回答する</p>
+<h1>問題</h1>
+
 <p>
   タイトル:
   <%= @problem.title %>
@@ -13,3 +13,23 @@
     <%= image_tag @problem.image %>
   <% end %>
 </p>
+
+<h2>回答</h2>
+<%= form_with model: [@problem, @problem.posts.build] do |form| %>
+  <% if @post.errors.any? %>
+    <div>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form. label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
