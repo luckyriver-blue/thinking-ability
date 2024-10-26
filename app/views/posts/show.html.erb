@@ -1,0 +1,29 @@
+<h1>回答</h1>
+<p><%= @post.content %></p>
+<p><%= link_to '削除', problem_post_path(@problem, @post),
+      data: { turbo_method: 'delete', turbo_confirm: '削除すると復元できません。削除しますか？' }%></p>
+
+<br>
+<h2>問題</h2>
+<p>
+  タイトル:
+  <%= @problem.title %>
+</p>
+<p>
+  お題:<br>
+  <%= @problem.content %>
+</p>
+<p>
+  <% if @problem.image.present? %>
+    <%= image_tag @problem.image %>
+  <% end %>
+</p>
+
+<h2>このお題に対する回答一覧</h2>
+<div>
+  <ul>
+    <% @problem_posts.each do |problem_post| %>
+      <li><%= problem_post.content %></li>
+    <% end %>
+  </ul>
+</div>

@@ -7,5 +7,6 @@ class ProblemsController < ApplicationController
   #問題詳細
   def show
     @problem = Problem.find(params[:id])
+    @post = @problem.posts.new
   end
 end
