@@ -3,6 +3,24 @@ class PostsController < ApplicationController
   def show
     @problem = Problem.find(params[:problem_id])
     @post = Post.find(params[:id])
+    
+    # OpenAI APIを呼び出してレスポンスを取得
+    
+    client = OpenAI::Client.new
+    response = client.chat(
+      parameters: {
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: "簡単にフィードバックお願いします" },
+          { role: "user", content: @post.content }
+        ],
+        max_tokens: 200,
+        temperature: 0.5
+      }
+    )
+    @generated_text = response.dig("choices", 0, "message", "content")
+  
+  
     @problem_posts = @problem.posts
   end
   
