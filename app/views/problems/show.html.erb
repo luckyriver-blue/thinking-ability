@@ -15,7 +15,7 @@
 </p>
 
 <h2>回答</h2>
-<%= form_with model: [@problem, @problem.posts.build] do |form| %>
+<%= form_with model: [@problem, @problem.posts.build], data: { turbo_confirm: '投稿の内容は編集できません。投稿しますか？' } do |form| %>
   <% if @post.errors.any? %>
     <div>
       <ul>
@@ -30,6 +30,6 @@
     <%= form.text_area :content %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit%>
   </div>
 <% end %>
