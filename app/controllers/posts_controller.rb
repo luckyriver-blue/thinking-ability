@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   def create
     @problem = Problem.find(params[:problem_id])
     @post = @problem.posts.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to problem_post_path(@problem, @post)
     else
