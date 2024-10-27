@@ -1,5 +1,17 @@
 <h1>ホーム</h1>
-<p>ようこそ<%= current_user.name %>さん!</p>
+<h2><%= current_user.name %>さんの現在の思考力の高さ</h2>
+<% if @achievement >= 80 %>
+  <p>天国</p>
+<% elsif @achievement >= 60 %>
+  <p>宇宙</p>
+<% elsif @achievement >= 40 %>
+  <p>空</p>
+<% elsif @achievement >= 20 %>
+  <p>地上</p>
+<% else %>
+  <p>海の底</p>
+<% end %>
+
 <h2><%= link_to "お題に回答して思考力を鍛える", problems_path %></h2>
 <h2>あなたの投稿一覧</h2>
 <ul>
