@@ -1,15 +1,20 @@
 <h1>ホーム</h1>
 <h2><%= current_user.name %>さんの現在の思考力の高さ</h2>
 <% if @achievement >= 80 %>
-  <p>天国</p>
+  <p>天国　<(￣︶￣)>神っ</p>
+  <%= image_tag "up.png", width: "300px" %>
 <% elsif @achievement >= 60 %>
   <p>宇宙</p>
+  <%= image_tag "space.png", width: "300px" %>
 <% elsif @achievement >= 40 %>
   <p>空</p>
+  <%= image_tag "sky.png", width: "300px" %>
 <% elsif @achievement >= 20 %>
   <p>地上</p>
+  <%= image_tag "land.png", width: "300px" %>
 <% else %>
-  <p>海の底</p>
+  <p>海の底　( p_q)</p>
+  <%= image_tag "see.png", width: "300px" %>
 <% end %>
 
 <h2><%= link_to "お題に回答して思考力を鍛える", problems_path %></h2>
