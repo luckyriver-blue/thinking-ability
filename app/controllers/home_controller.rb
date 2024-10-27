@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
   def top
     #自分の投稿一覧
-    @current_user = 1 #一時的に
-    @posts = Post.where(user_id: @current_user)
+    @posts = Post.where(user_id: current_user.id)
   end
 end

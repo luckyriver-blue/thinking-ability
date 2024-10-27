@@ -23,7 +23,14 @@
 <div>
   <ul>
     <% @problem_posts.each do |problem_post| %>
-      <li><%= problem_post.content %></li>
+      <li>
+        <%= problem_post.content %>
+        <% if current_user.liked_posts.include?(problem_post) %>
+          <%= button_to 'Unlike', problem_post_like_path(problem_post.problem_id, problem_post.id, current_user.likes.find_by(post_id: problem_post.id)), method: :delete %>
+        <% else %>
+          <%= button_to 'Like', [@problem, problem_post, :likes], method: :post %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

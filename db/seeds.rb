@@ -13,22 +13,11 @@ Problem.create!(
   ]
 )
 
-User.create!(
-  [
-    {
-      name: 'アオイ',
-    },
-    {
-      name: 'タロウ'
-    }
-  ]
-)
-
 Post.create!(
   [
     {
       problem_id: 1,
-      user_id: 2,
+      user_id: 1,
       content: '幸せになろう！'
     },
     {
